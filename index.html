@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animated Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+        }
+
+        #bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ffa500;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .container h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeIn 4s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .flowing-text {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            animation: floatText 10s linear infinite;
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1rem;
+            color: white;
+            animation: floatCard 6s ease-in-out infinite;
+        
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* @keyframes floatText {
+            0% {
+                transform: translateX(100%);
+            }
+           100% {
+                transform: translateX(-100%);
+            }
+        } */
+
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(40px);
+            }
+            50% {
+                transform: translateY(66px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container h1 {
+                font-size: 2.5rem;
+            }
+
+            .container p {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 2rem;
+            }
+
+            .container p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .card {
+                width: 250px;
+                height: 150px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container h1 {
+                font-size: 1.5rem;
+            }
+
+            .container p {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+
+            .card {
+                width: 200px;
+                height: 120px;
+                font-size: 0.8rem;
+            }
+        }
+        .card-holder{
+           display: flex; 
+           flex-direction: row;
+           gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bg"></canvas>
+    <header>
+        <div class="logo">superpower</div>
+        <nav>
+            <a href="#">Manifesto</a>
+            <a href="#">Marketplace</a>
+            <a href="#">Login</a>
+            <a href="#">Join Waitlist</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>A New Era of Personal Health</h1>
+        <p>The world’s most advanced digital clinic to help you live longer, prevent disease, and feel your best.</p>
+        <button class="btn">Join Waitlist</button>
+        <div class="flowing-text">Empowering you with knowledge, tools, and health at your fingertips.</div>
+        <div class="card-holder">
+        <div class="card">This is a 3D animated card with insightful information to explore.</div>
+        <div class="card">This is a 3D animated card with insightful information to explore.</div>
+        <div class="card">This is a 3D animated card with insightful information to explore.</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Floating 3D Object Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bg"), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const geometry = new THREE.SphereGeometry(15, 32, 32);
+        const material = new THREE.MeshStandardMaterial({ color: 0xffa500, emissive: 0x222222, wireframe: true });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        const light = new THREE.PointLight(0xffffff);
+        light.position.set(20, 20, 20);
+        scene.add(light);
+
+        camera.position.z = 50;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.01;
+            sphere.rotation.x += 0.005;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Resize canvas on window resize
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
